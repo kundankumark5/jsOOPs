@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // object creation with literal operators
+
+      var students = {
+        name: "Ram",
+        age: 10,
+      };
+      // access the property of newly created object
+      document.write(students.age + "<br>");
+
+      var patient = {
+        id: 123,
+        name: "Adharmies",
+      };
+      document.write(patient.name + "<br>");
+
+      // array object creation using array literal
+
+      var studentNames = ["jagan", "mohan", "nath"];
+      document.write(studentNames[0] + "<br>");
+
+      //  function literals
+
+      function Hello(name) {
+        return document.write("hello" + name + "<\br>");
+      }
+
+      //   regex literals :- it is defined in 'opening /' and 'closing /' we don't need any backward slash if we are using literals to create regex but in new operator we need
+      var regEx = / \d+/;
+
+      // figuring out reference type
+
+      document.write(typeof students + "<br>");
+      document.write(typeof studentNames + "<br>");
+      document.write(typeof Hello + "<br>");
+      document.write(typeof students + "<br>");
+      document.write(typeof regEx + "<br>");
+
+      //   to explicitly check the type of our object we can use instanceOf instead of typeof ex
+
+      document.write((students instanceof Object) + "<br>");
+      document.write((studentNames instanceof Array) + "<br>");
+      document.write((Hello instanceof Function) + "<br>");
+      document.write((regEx instanceof RegExp) + "<br>");
+
+      // wrapper types
+      var quote = "arise awake and stop not till the goal is not reached";
+      var s = quote.substring(4, 8);
+      document.write(s + "<br>");
+      var temp = new String(
+        "arise awake and stop not till the goal is not reached"
+      );
+      var s = quote.substring(4, 8);
+      s.category = "inspiring";
+      document.write(s.category + "<br>");
+
+      // it will show undefined cause js destroy object in next line
+      document.write(s instanceof String);
+    </script>
+  </head>
+  <body></body>
+</html>

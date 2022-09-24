@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // adding a method to a object
+      //   this points to object in which we invoke it as if we use this here it will point to student object see ex
+      var student = {
+        id: "1",
+        name: "Ram",
+        display: function () {
+          document.write(student.id + " " + student.name + "<br> ");
+          //   both will have same output as
+          document.write(this.id + " " + this.name + "<br> ");
+        },
+      };
+
+      student.display();
+      //   using this method also increase reusability of our method ex see below we are assigning our display method to a variable then reuse it
+      function displayDetails() {
+        document.write(this.id + " " + this.name + "<br> ");
+      }
+      var student1 = {
+        id: 2,
+        name: "Ganesh",
+        display: displayDetails,
+      };
+      student1.display();
+
+      //   this is also available in global scope means it doesn't required any object to invoke a function or to be called ex below
+      this.id = "3";
+      this.name = "shiv";
+      displayDetails();
+    </script>
+  </head>
+  <body></body>
+</html>

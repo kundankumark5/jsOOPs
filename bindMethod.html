@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // bind method is used to bind the this method to any object it returns a new function
+
+      function displayDetails(testScore) {
+        document.write(this.id + " " + this.name + " " + testScore + "<br>");
+      }
+
+      var student = {
+        id: "1",
+        name: "Ram",
+      };
+      var student1 = { id: "2", name: "Ganesh" };
+      var student2 = { id: "3", name: "Shiv" };
+      this.id = "4";
+      this.name = "Narad";
+
+      var displayforStuedent = displayDetails.bind(student);
+      displayforStuedent(10);
+      var displayforStuedent1 = displayDetails.bind(student1);
+      displayforStuedent1(20);
+      var displayforStuedent2 = displayDetails.bind(student2);
+      displayforStuedent2(30);
+      var displayforStuedent = displayDetails.bind(this);
+      displayforStuedent(40);
+    </script>
+  </head>
+  <body></body>
+</html>

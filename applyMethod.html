@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // apply method is same as call method except it only accepts array of arguments instead of one at a time as call
+
+      function displayDetails(testScore) {
+        document.write(this.id + " " + this.name + " " + testScore + "<br>");
+      }
+
+      var student = {
+        id: "1",
+        name: "Ram",
+      };
+      var student1 = { id: "2", name: "Ganesh" };
+      var student2 = { id: "3", name: "Shiv" };
+      this.id = "4";
+      this.name = "Narad";
+
+      // using call it will like
+
+      //   displayDetails.call(student, 10);
+      //   displayDetails.call(student1, 20);
+      //   displayDetails.call(student2, 30);
+      //   displayDetails.call(this, 40);
+
+      // but with apply it will like below
+      displayDetails.apply(student, [10]);
+      displayDetails.apply(student1, [20]);
+      displayDetails.apply(student2, [30]);
+      displayDetails.apply(this, [40]);
+    </script>
+  </head>
+
+  <body></body>
+</html>

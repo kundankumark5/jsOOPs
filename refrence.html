@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //  object creation (it is called allocation in JS) using new operator or constructor syntax
+      var obj1 = new Object();
+      var obj2 = obj1;
+      // adding dynamic property to our object using dot operator
+      obj1.myProperty = "all the power is within you";
+
+      document.write(obj2.myProperty);
+      // unlike C/C++ JS doesn't need any special function to deallocate its memory, if any object is not pointing any reference or pointing to null then by default JS will deallocate it. so simply if we want to deallocate , we just have to assign null to any object;
+      obj2 = null;
+
+      //   types of objects in JS :-   Array, Date, Error, Function, Object and RegExp(regular expression)   Ex below
+      var products = new Array();
+      var date = new Date();
+      var err = new Error("Something went wrong");
+      var myFunc = new Function("document.write('Hello')");
+      var obj = new Object();
+    //   we need a backward slash here if using new operator to create regex, in literal we don't
+        var regEx = new RegExp("\\d+");        
+    </script>
+  </head>
+  <body></body>
+</html>

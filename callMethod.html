@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    // as we have seen this method can invoke any method or also available globally but with call object we even don't have to assign a function to each object rather just call a function with call method it will provide required result from any object on the basis of arguments or globally if no any argument provided
+
+    function displayDetails() {
+      document.write(this.id + " " + this.name + "<br>");
+    }
+
+    var student = {
+      id: "1",
+      name: "Ram",
+    };
+    var student1 = { id: "2", name: "Ganesh" };
+    var student2 = { id: "3", name: "Shiv" };
+    this.id = "4";
+    this.name = "Narad";
+
+    // using call
+
+    displayDetails.call(student);
+    displayDetails.call(student1);
+    displayDetails.call(student2);
+    displayDetails.call();
+  </script>
+  <body></body>
+</html>

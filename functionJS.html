@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //         <!-- there are two way to define a function in JS 1. Declaration way and 2. Expression way -->
+      // <!-- 1.Declaration way -->
+      function evenOrOdd(num) {
+        if (num % 2 == 0) return "even";
+        else return "odd";
+      }
+      document.write(evenOrOdd(10) + "<br>");
+
+      // 2.expression way    imp : expression way doesn't support function hoisting (you can't invoke your function before define function body)
+      var evenOrOdd2 = function (num) {
+        if (num % 2 == 0) return "even";
+        else return "odd";
+      };
+      document.write(evenOrOdd2(5) + "<br>");
+
+
+
+
+
+
+      //   arrow function
+
+      hello = (val) => "hello" + val;
+
+      // passing a function as a argument
+      var studentIds = [10, 40, 5, 8];
+      studentIds.sort(function (num1, num2) {
+        return num1 - num2;
+      });
+      document.write(studentIds + "<br>");
+
+      //   we can pass any number or arguments but if function is declared with one parameter it will accept only first, BTW we can store rest in a variable named arguments
+
+      var evenOrOdd2 = function (num) {
+        document.write(arguments[2] + "<br>");
+        if (num % 2 == 0) return "even";
+        else return "odd";
+      };
+      document.write(evenOrOdd2(5, 8, 3, 4) + "<br>");
+
+      // using arguments in function  (function without argument still  returns)
+
+      function product() {
+        var result = 1;
+        for (var i = 0; i < arguments.length; i++) {
+          result *= arguments[i];
+        }
+        return result;
+      }
+      document.write(product(5, 3, 2, 4) + "<br>");
+      document.write(product() + "<br>");
+
+      //  imp : js recognize the definition of a function if there are more than on so in overloading situation it will return according last declaration
+      function add(a, b, c) {
+        return a + b + c;
+      }
+      function add(d, e) {
+        document.write(arguments.length + "<br>");
+        return d + e;
+      }
+      document.write(add(4, 5, 6) + "<br>");
+      // here it will return 9 rather than 15 because add function was later refined with 2 arguments which only JS recognize
+
+      // object methods
+    </script>
+  </head>
+  <body></body>
+</html>
