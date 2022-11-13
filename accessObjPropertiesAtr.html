@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<script>
+    var creditCard ={
+        _name :"jp"
+    };
+    Object.defineProperty(creditCard, "_name", {enumerable:false});
+    console.log("_name" in creditCard);  //returns true after checking availability
+    console.log(creditCard.propertyIsEnumerable("_name"));  //return false since it's declared enumerable
+
+    // by the same way we can define a attribute configurable or not --- if not it's unable to be modify
+
+    Object.defineProperty(creditCard, "_name",{configurable:false});
+
+    //try to delete after declaring configurable false , it will undone
+
+    delete creditCard._name;
+    console.log("_name" in creditCard);
+    console.log(creditCard._name);
+
+Object.defineProperty(creditCard,"_name", {configurable:true}) // redefining will return an error
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

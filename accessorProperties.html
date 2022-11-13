@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // var creditCard ={
+      //     _name : "Jaya",
+      //     get name(){
+      //         return this._name;
+      //     },
+      //  set name(value){
+      //     this._name/-8
+      //  }
+      // }
+
+      // instead of this we can also declare using object.defineProperty attribute
+      //   var creditCard = { _name: "js" };
+      //   Object.defineProperty(creditCard, "name", {
+      //     get: function () {
+      //       return this._name;
+      //     },
+      //     set: function (value) {
+      //       this._name = value;
+      //     },
+      //     enumerable: true,
+      //     configurable: true,
+      //   });
+
+      //   note it will become only readable un enumerable and non configurable once we remove set , enumerable/configurable true properties
+
+      // using object.defineProperties(object_Name, {multiple properties declaration here})
+
+      //   var creditCard = {};
+      //   Object.defineProperties(creditCard, {
+      //     _name: {
+      //       value: "js",
+      //       enumerable: true,
+      //       configurable: true,
+      //       writable: true,
+      //     },
+      //     name: {
+      //       get: function () {
+      //         return this._name;
+      //       },
+      //       set: function (value) {
+      //         this._name = value;
+      //       },
+      //       enumerable: true,
+      //       configurable: true,
+      //     },
+      //   });
+
+      // retrieving properties attributes
+
+      var creditCard = { name: "js" };
+      var descriptor = Object.getOwnPropertyDescriptor(creditCard, "name");
+      console.log(descriptor.enumerable);
+      console.log(descriptor.configurable);
+      console.log(descriptor.writable);
+      console.log(descriptor.value);
+    </script>
+  </head>
+  <body></body>
+</html>

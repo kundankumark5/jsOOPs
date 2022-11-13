@@ -19,9 +19,63 @@
     // adding a new property to existing object
     course1.description = "master the java development platform";
 
-    // checking existing property in an existing object using in operator
-    document.write("name" in course1 + "<br>"); //will return true or false if exist or not
+    // checking existing property in an existing object using in operator (it also check for property inherited from parent too)
+    document.write("name" in course1);
+    //will return true or false if exist or not
+    document.write("<br>");
     document.write("description" in course1);
+    document.write("<br>");
+    document.write("description" in course2);
+    document.write("<br>");
+    document.write("toString" in course1); // will return true
+    document.write("<br>");
+
+    //checking existing method using hasOwnProperty method with object(it checks only for object methods not inherited)
+    console.log(course1.hasOwnProperty("toString") + "<br>");
+
+    //delete operator allows us to delete a method of object as (it return true if deleted or false if not)
+    // document.write("<br>" + delete course1.name);
+    // retrieving all property of object
+    for (var eachProperty in course1) {
+      // console.log(eachProperty + course1[eachProperty]);
+    }
+    //or retrieving  using object.keys(object_name)
+    var allKeys = Object.keys(course1);
+    for (var i = 0; i < allKeys.length; i++) {
+      console.log(allKeys[i] + course1[allKeys[i]]);
+    }
+
+    // checking Enumerability using object.propertyIsEnumerable(propertyName);
+
+    console.log(course1.propertyIsEnumerable("name"));
+   //  console.log(allProperties.propertyIsEnumerable("length"));  
+    // remove a property using delete operator, it returns true/false if deleted/failed to delete
+    document.write(delete course1.name + "<br>");
+    document.write(course1.hasOwnProperty("name"));
+    course1.name = "Kunjvihari"; //adding name property to course1 again
+
+    // retrieving all the properties
+
+    for (var eachProperty in course1) {
+      console.log(eachProperty);
+      console.log(course1[eachProperty]);
+    }
+
+    // retrieving just the keys  using object.keys(objectName){returns all the key as array}
+
+    var allProperties = Object.keys(course1);
+    for (var i = 0; i < allProperties.length; i++) {
+      console.log(allProperties[i]);
+      console.log(course1[allProperties[i]]);
+    }
+
+    // checking Enumerabillity using objectName.propertyIsEnumerable("name");
+    console.log(course1.propertyIsEnumerable("name"));
+    console.log(allProperties.propertyIsEnumerable("length"));     //but most of inbuilt funtions are not enumerable
+    
+  
+
+
   </script>
 
   <body></body>

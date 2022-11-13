@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //    <!-- by default an object is extensible but we can declare it non extensible / seal it / freeze it -->
+
+      var product = { name: "i-phone" };
+      console.log(Object.isExtensible(product)); // will return true since by default an object is extensible
+      Object.preventExtensions(product); // it stop object extension
+      console.log(Object.isExtensible(product));
+      product.price = 700;
+      console.log("price" in product);
+
+      //   checking weather an object sealed or not
+
+      console.log(Object.isSealed(product));
+      Object.seal(product);
+      console.log(Object.isSealed(product));
+      product.price = 10;
+      console.log("price" in product);
+      delete product.name;
+      console.log("name" in product);
+      var descriptor = Object.getOwnPropertyDescriptor(product, "name");
+      console.log(descriptor.configurable);
+
+      // to check if an object frozen or not
+
+      console.log(Object.isFrozen(product)); // it will return false since all object is non frozen by default
+
+      // freeze an object using object.freeze(object_Name);
+      Object.freeze(product);
+
+      product.name = "macBook";
+      console.log(product.name);
+      var descriptor = Object.getOwnPropertyDescriptor(product, "name");
+      console.log(descriptor.writable);
+      console.log(descriptor.configurable);
+      console.log(Object.isFrozen(product));
+    </script>
+  </head>
+  <body></body>
+</html>
