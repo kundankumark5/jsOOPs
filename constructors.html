@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // constructors are special types of function(first letter of their names is alway in capital letter ) which are used to create any number of similar objects with exact same property and initialize those property during object creation.
+
+      // prototypes  are the way to share properties across object
+
+      // constructor creation
+
+      function Flight(airlines, flightNumber) {
+        // defining properties and methods  to the object
+        this.airlines = airlines;
+        this.flightNum = flightNumber;
+        this.display = function () {
+          console.log(this.airlines);
+          console.log(this.flightNum);
+        };
+      }
+      var flight1 = new Flight("american airlines", "AA432"); // we can omit () if no any argument is to be passed otherwise new flight();
+      var flight2 = new Flight("pawanHans", "PH8765");
+      console.log(flight1 instanceof Flight);
+      console.log(flight2 instanceof Flight); // since flight1 and flight2 are of flight type so it's true we can check it either this way
+
+      console.log(flight1.constructor === Flight);
+      console.log(flight2.constructor === Flight);
+
+      flight1.display();
+      flight2.display();
+
+      function Laptop(manufacturer, memory, capacity) {
+        this.manufacturer = manufacturer;
+        this.memory = memory;
+        this.capacity = capacity;
+        this.display = function () {
+          console.log(this.manufacturer);
+          console.log(this.memory);
+          console.log(this.capacity);
+        };
+      }
+
+      var laptop1 = new Laptop("HP", "8GB", "2.4GHz");
+      var laptop2 = new Laptop("ASUS", "16GB", "3.4GHz");
+      laptop1.display();
+      laptop2.display();
+    </script>
+  </head>
+  <body></body>
+</html>

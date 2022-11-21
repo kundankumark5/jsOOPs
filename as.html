@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      var license = {};
+      Object.defineProperties(license, {
+        name: { value: "js", enumerable: false },
+        number: { value: "55555", configurable: false },
+      });
+
+      var des = Object.getOwnPropertyDescriptor(license, "name");
+      var des1 = Object.getOwnPropertyDescriptor(license, "number");
+      console.log(des.value);
+      console.log(des1.value);
+      console.log(des.enumerable);
+      console.log(des1.configurable);
+      Object.seal(license);
+      console.log(Object.isSealed(license));
+      license.product = "y";
+      console.log("product" in license);
+    </script>
+  </head>
+  <body></body>
+</html>

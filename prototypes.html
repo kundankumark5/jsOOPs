@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // // prototypes  are the way to share properties and methods across object this saves a lot of memory and time along with extra efforts , in JS every function has a property called prototype and if we create objects using this function all the objects will share that prototype ex
+      // passenger.prototype can be shared by passenger1 and passenger2 if we use passenger function as a constructor to create passenger 1 and 2
+
+      var passenger = { name: "JK" };
+      console.log("name" in passenger);
+      console.log(Object.prototype.hasOwnProperty("hasOwnProperty")); // true since hasOwnProperty method comes from object.prototype
+      console.log(passenger.hasOwnProperty("name"));
+      console.log("hasOwnProperty" in passenger);
+      console.log(passenger.hasOwnProperty("hasOwnProperty"));
+
+      //   to check if all newly created objects points to the object.prototype we can do
+
+      var prototype = Object.getPrototypeOf(passenger);
+      console.log(prototype === Object.prototype);
+      console.log(Object.prototype.isPrototypeOf(passenger));
+
+      //   the way JS works on our property
+      var myObj = {};
+      console.log(myObj.toString());
+      myObj.toString = function () {
+        return "my tosring method";
+      };
+      console.log(myObj.toString());
+      delete myObj.toString();
+      console.log(myObj.toString());
+      delete myObj.toString;
+      console.log(myObj.toString());
+    </script>
+  </head>
+  <body></body>
+</html>

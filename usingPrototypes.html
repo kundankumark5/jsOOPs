@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Flight(airlines, flightNum) {
+        this.airlines = airlines;
+        this.flightNumber = flightNum;
+      }
+      //defining method on prototype instead of constructor itself
+      Flight.prototype.display = function () {
+        console.log(this.airlines);
+        console.log(this.flightNumber);
+      };
+      //   we can define any num of function on prototype like
+
+      Flight.prototype = {
+        show: function () {
+          console.log(this.airlines);
+          console.log(this.flightNumber);
+        },
+        toString: function () {
+          return "(flight " + this.airlines + " , " + this.flightNumber + ")";
+        },
+      };
+      var flight1 = new Flight("PawanHans", "PH3020");
+      var flight2 = new Flight("USairlines", "us4949");
+      flight1.display();
+      flight2.display();
+      console.log(flight1.toString());
+      console.log(flight2.toString());
+    </script>
+  </head>
+  <body></body>
+</html>
