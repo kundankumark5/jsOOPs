@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // before es6 object was the only way to store key value pair, but now there is  map introduced  by ES6
+      //   we use set method to set its value
+
+      //   let scores = new Map();
+      //   scores.set("math", 90);
+      //   scores.set("physics", 95);
+      //   scores.set("chemistry", 98);
+      //   shortcut way to create a  map is
+      let scores = new Map([
+        ["math", 98],
+        ["physics", 97],
+        ["chemistry", 96],
+      ]);
+      console.log(
+        scores.get("math") +
+          "  " +
+          scores.get("physics") +
+          " " +
+          scores.get("chemistry")
+      );
+
+      //  mapname.size- returns properties no in map
+      console.log(scores.size);
+
+      // mapname.has("key")- return boolean if available or not
+      console.log(scores.has("english"));
+      console.log(scores.has("math"));
+      //   mapname.delete("key");  will delete the 'key ' from map
+      console.log(scores.delete("math"));
+      console.log(scores.has("math"));
+      //   map.clear --- will clear all elements of map
+      scores.clear(); // now size of map will 0
+      console.log(scores.size);
+
+      // using for of on map
+
+      let result = new Map([
+        ["anil", 80],
+        ["sunil", 90],
+        ["sumit", 87],
+      ]);
+      for (let key of result.keys()) {
+        //can use values instead of keys
+        console.log(key);
+        console.log(result.get(key));
+      }
+
+      //using entries in map
+      for (let entry of result.entries()) {
+        console.log(entry[0], entry[1]);
+      }
+
+      //   using array destructuring
+
+      for (let [k, v] of result.entries()) {
+        console.log(k, v);
+      }
+
+      //   a set is a dataStructure used to store any number of unique value but not in the form of key value pair , just single
+      //   let course = new Set();
+      //   course.add("angular");
+      //   course.add("react");
+      //   course.add("react");
+      //   course.add("c");
+      //  using chain method we can assign values as
+      //   let course = new Set().add("angular").add("react").add("react").add("c");
+
+      // or using shorthand method it will be done as
+      let course = new Set(["angular", "react", "node", "c"]);
+      for (let key of course) {
+        console.log(key);
+      }
+      console.log(course.size);
+      console.log(course.has("react"));
+      course.clear();
+      console.log(course.size);
+      console.log(course.has("react"));
+    </script>
+  </head>
+  <body></body>
+</html>

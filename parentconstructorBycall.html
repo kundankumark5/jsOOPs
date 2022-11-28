@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function Doctor(name) {
+        this.name = name;
+      }
+      Doctor.prototype.treat = function () {
+        return "treated";
+      };
+      function Surgeon(name, type) {
+        Doctor.call(this.name); // using doctor constructor by call method
+        this.name = name;
+        this.type = type;
+      }
+      Surgeon.prototype = Object.create(Doctor.prototype, {
+        constructor: {
+          configurable: true,
+          enumerable: true,
+          value: Surgeon,
+          writable: true,
+        },
+      });
+      Surgeon.prototype.treat = function () {
+        // to call doctor treat method here
+        return Doctor.prototype.treat.call(this) + " operated";
+      };
+
+      var doc = new Doctor("Jay");
+      var surg = new Surgeon("Vijay", "Dental");
+
+      console.log(doc.treat());
+      console.log(surg.treat());
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // javascript with the help of ES6 is now enabled for class too... class is oops concept and blueprint of object creation it is called defining a template    ex of a class is below
+
+      class Passenger {
+        constructor(fname, lname, PNR_no) {
+          this.firstName = fname;
+          this.lastName = lname;
+          this.pnr = PNR_no;
+        }
+      }
+
+      let passenger = new Passenger("jk", "t", 9808);
+      let passenger1 = new Passenger("kj", "t", 9809);
+      console.log(passenger);
+      console.log(passenger1);
+
+      //   using extend to use inheritance on class  reusability and is a relationship is common usages of inheritance;
+
+      class BMW {
+        constructor(make, model, year) {
+          this.make = make;
+          this.model = model;
+          this.year = year;
+        }
+        start() {
+          console.log("start engine");
+        }
+        stop() {
+          console.log("stop engine");
+        }
+      }
+      class ThreeSeries extends BMW {
+        constructor(make, model, year, cruiseControlEnabled) {
+          super(make, model, year);
+          // super must be first line in child class , this is used to invoke parent class constructor
+          this.cruiseControlEnabled = cruiseControlEnabled;
+        }
+      }
+      class FiveSeries extends BMW {
+        constructor(make, model, year, parkingAssistEnabled) {
+          super(make, model, year);
+          this.parkingAssistEnabled = parkingAssistEnabled;
+        }
+        start() {
+          console.log("remote start"); // overridden or shadow
+        }
+      }
+
+      let threeSeries = new ThreeSeries("BMW", 328, 2019, true);
+      let fiveSeries = new FiveSeries("BMW", 322, 2021, false);
+
+      console.log(
+        threeSeries.make +
+          " " +
+          threeSeries.model +
+          " " +
+          threeSeries.year +
+          " " +
+          threeSeries.cruiseControlEnabled
+      );
+      threeSeries.start();
+      threeSeries.stop();
+
+      console.log(
+        fiveSeries.make +
+          " " +
+          fiveSeries.model +
+          " " +
+          fiveSeries.year +
+          " " +
+          fiveSeries.parkingAssistEnabled
+      );
+      fiveSeries.start();
+      fiveSeries.stop();
+    </script>
+  </head>
+  <body></body>
+</html>

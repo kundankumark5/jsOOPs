@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //using literal form
+      //   var project = { name: "road work" };
+      //   console.log(project.hasOwnProperty("name"));
+      //   var prototype = Object.getPrototypeOf(project);
+      //   console.log(prototype === Object.prototype); // proved all newly created objects inherits Object prototype bydefault
+
+      //   //   assigning our object a prototype property using object.create method
+
+      //   Object.create(Object.prototype, {
+      //     name: {
+      //       configurable: true,
+      //       writable: true,
+      //       enumerable: true,
+      //       value: "Road Work",
+      //     },
+      //   });
+
+      //   var project1 = {
+      //     name: "road work1",
+      //     display: function () {
+      //       console.log(this.name);
+      //     },
+      //   };
+
+      //   var project2 = Object.create(project1, {
+      //     name: {
+      //       configurable: true,
+      //       writable: true,
+      //       enumerable: true,
+      //       value: "bridge work",
+      //     },
+      //   });
+
+      //   project1.display();
+      //   project2.display();
+
+      //   var car = {
+      //     model: "maruti",
+      //     year: "2022",
+      //     drive: function () {
+      //       return "let's go";
+      //     },
+      //     toString: function () {
+      //       console.log(this.model);
+      //     },
+      //   };
+
+      //   var honda = Object.create(car, {
+      //     model: { value: "honda" },
+      //   });
+      //   var BMW = Object.create(car, {
+      //     model: { value: "BMW" },
+      //   });
+
+      //   honda.toString();
+      //   console.log(honda.drive());
+      //   BMW.toString();
+      //   console.log(BMW.drive());
+      //   car.toString();
+      //   console.log(car.drive());
+
+      //   // the way JS work when we create new object
+
+      //   function Doctor() {}
+
+      //   // internall js does it
+      //   Doctor.prototype = Object.create(Object.prototype, {
+      //     constructor: {
+      //       enumerable: true,
+      //       configurable: true,
+      //       writable: true,
+      //       value: "Doctor",
+      //     },
+      //   });
+      //   example of inheritance
+
+      //   function Doctor(name) {
+      //     this.name = name;
+      //   }
+      //   Doctor.prototype.treat = function () {
+      //     return "treated";
+      //   };
+      //   Doctor.prototype.toString = function () {
+      //     return "Doctor " + this.name + "";
+      //   };
+      //   function Surgeon(name, type) {
+      //     this.name = name;
+      //     this.type = type;
+      //   }
+      //   Surgeon.prototype = new Doctor();
+      //   Surgeon.prototype.constructor = Surgeon;
+      //   Surgeon.prototype.toString = function () {
+      //     return "surgeon name " + this.name + " type " + this.type;
+      //   };
+
+      //   var Doc = new Doctor("Jagan");
+      //   var surg = new Surgeon("Balram", "Dentist");
+      //   console.log(Doc.treat());
+      //   console.log(Doc.toString());
+      //   console.log(surg.treat());
+      //   console.log(surg.toString());
+
+      //   console.log(Doc instanceof Doctor);
+      //   console.log(surg instanceof Doctor);
+      //   console.log(surg instanceof Surgeon);
+
+      //   console.log(Doc instanceof Object); // true since object is always parent of every js object
+      //   console.log(surg instanceof Object); // true since object is always parent of every js object
+
+      function Car(model, year) {
+        this.model = model;
+        this.year = year;
+      }
+      Car.prototype.display = function () {
+        return this.model + " " + this.year;
+      };
+    
+      var Honda = new Car("hundai", "2020");
+      var BMW = new Car("bem", "2021");
+       
+      console.log(Honda.display());
+      console.log(BMW.display());
+    </script>
+  </head>
+  <body></body>
+</html>

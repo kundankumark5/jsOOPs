@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      String.prototype.display = function () {
+        console.log(this.toString());
+      };
+
+      "f".display();
+
+      //   taking care of constructor property alway define constructor on top otherwise it will treat object as constructor
+
+      function Flight(airlines, flightNumber) {
+        this.airlines = airlines;
+        this.flightNumber = flightNumber;
+      }
+      Flight.prototype = {
+        constructor: Flight,
+        display: function () {
+          console.log(this.airlines);
+          console.log(this.flightNumber);
+        },
+        toString: function () {
+          return '"my tostring func returns flight " +this.airlines +"." +this.flightNumber';
+        },
+      };
+      var flight1 = new Flight("ai", "au9999");
+      flight1.toString();
+      flight1.display();
+    </script>
+  </head>
+  <body></body>
+</html>

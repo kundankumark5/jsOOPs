@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // let provided in es6 made possible to declare block level scope while var is function level scope
+      // const doesn't allow its value to be changed
+      // backtick operator keep our whiteSpaces(enter and space ) as it is , it also allow {variable} ;
+      //   arrow function ex   var doubleMe = (num)=> (num*2); or var doubleMe = (num)=> {return num*2};
+      let x = () => console.log("hello");
+      x();
+      //    or
+      let y = () => {
+        return "hello";
+      };
+      console.log(y());
+
+      //   pass parameters to an arrow function
+
+      let add = (num1, num2) => {
+        return num1 + num2;
+      };
+      console.log(add(3, 5));
+
+      // destructuring :- es6 enabled a new way to retrieve object values different from
+      //  const fName =student.firstName ;
+      //  const lName =student.lastName ;
+      //  const s =student.score ;
+
+      // we can do it now as const {firstName:fName, lastName:lName,score:s}=student;   as ex of object destructuring below
+
+      let student = {
+        firstName: "ajay",
+        lastName: "kumar",
+        score: 90,
+      };
+      const { firstName: fName, lastName: lName, score: s } = student;
+      console.log(fName + " " + lName + " " + s);
+
+      //   array destructuring
+      const courses = ["angular", "react", "node"];
+      const [course1, course2, course3] = courses;
+      console.log(course1 + " " + course2 + " " + course3);
+
+      //simple
+      function add2(options) {
+        console.log(options.num1 + options.num2 + options.num3);
+      }
+      add2({ num1: 10, num2: 20, num3: 30 });
+
+      //    using destructuring
+      function add3({ num1, num2, num3 }) {
+        console.log(num1 + num2 + num3);
+      }
+      add3({ num1: 10, num2: 20, num3: 30 });
+
+      // for of loop
+
+      let names = ["jay", "vijay", "dhruv"];
+      for (let value of names) {
+        console.log(value);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

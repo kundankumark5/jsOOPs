@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // before ES6 callback function was there in JS but now promise is used as asynchronous function
+
+      function myAsyncFun() {
+        let promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("working asynchronously");
+            resolve();
+          }, 1000);
+        });
+        return promise;
+      }
+      myAsyncFun().then(() => console.log("work done"));
+
+      //   error handling
+
+      function myAsyncFun1() {
+        let promise1 = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("working");
+            if (Error) {
+              reject();
+            } else {
+              resolve();
+            }
+          }, 2000);
+        });
+        return promise1;
+      }
+
+      myAsyncFun1().then(
+        () => console.log("works done"), // we can pass parameter too  these parameter could be the response
+        () => console.log("err") // this can do by catch block too....
+      );
+      // .catch((error) => console.log(error));
+
+      // module  create function using export and use it using import keyword
+    </script>
+  </head>
+  <body></body>
+</html>

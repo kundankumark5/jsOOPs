@@ -11,11 +11,11 @@
         this.flightNumber = flightNum;
       }
       //defining method on prototype instead of constructor itself
-      Flight.prototype.display = function () {
-        console.log(this.airlines);
-        console.log(this.flightNumber);
-      };
-      //   we can define any num of function on prototype like
+      // Flight.prototype.display = function () {
+      //   console.log(this.airlines);
+      //   console.log(this.flightNumber);
+      // };
+      // or  we can define any num of function on prototype like (imp:- either use above or below way, using both at a time will show an err )
 
       Flight.prototype = {
         show: function () {
@@ -29,7 +29,7 @@
       var flight1 = new Flight("PawanHans", "PH3020");
       var flight2 = new Flight("USairlines", "us4949");
       flight1.display();
-      flight2.display();
+      flight2.show();
       console.log(flight1.toString());
       console.log(flight2.toString());
     </script>

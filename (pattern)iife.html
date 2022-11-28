@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // IIFE (immediately invoked function expression )    module pattern and revealing module pattern are its ex
+      // syntax
+      //   var myObject = (function(){
+      //       private data variables
+      //       return{public methods and properties}
+      //   }());
+      // module pattern  revealing private data variable only through public methods
+      var account = (function () {
+        var balance = 1000;
+        return {
+          name: "JAY",
+          getBalance: function () {
+            return balance;
+          },
+          addInterest: function (interest) {
+            balance += interest;
+          },
+        };
+      })();
+
+      console.log(account.name);
+      console.log(account.getBalance());
+
+      account.balance = 2000;
+      console.log(account.getBalance());
+
+      account.addInterest(3000);
+      console.log(account.getBalance());
+
+      // revealing module pattern make variable and methods both private and reveal only by calling publicaly
+
+      var account1 = (function () {
+        var balance = 4000;
+        function checkBal() {
+          return balance;
+        }
+        function ammount(interest) {
+          return (balance += interest);
+        }
+
+        return {
+          name: "Subh",
+          retrieveBal: checkBal,
+          withInterest: ammount(4000),
+        };
+      })();
+      console.log(account1.name);
+      console.log(account1.withInterest);
+      console.log(account1.retrieveBal());
+    </script>
+  </head>
+  <body></body>
+</html>
